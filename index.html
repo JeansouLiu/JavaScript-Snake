@@ -1,17 +1,7 @@
 <!DOCTYPE html>
-<!--<html manifest="snake.appcache">-->
 <head>
-<!--
-
-JavaScript Snake
-By Patrick Gillespie
-http://patorjk.com/games/snake
-
-Source code is available here: https://github.com/patorjk/JavaScript-Snake
-
--->
     <meta charset="utf-8">
-    <title>JavaScript Snake</title>
+    <title>JavaScript 贪吃蛇</title>
     <link rel=stylesheet id="style" type="text/css" href="./css/main-snake.css" />
     <link rel="shortcut icon" href="css/images/favicon.png" />
     <style>
@@ -54,50 +44,38 @@ function getTheme () {
         document.getElementById('game-area').focus();
     }, 10);
 }
-
-if (navigator.onLine && window.location.hostname === 'patorjk.com') {
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3312460-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-}
 </script>
 </head>
 <body>
     <div class="snake-toolbar">
       <div style="display:inline-block;margin-right:10px;">
-        <span>Theme:</span>
+        <span>主题:</span>
         <select onchange="getTheme()" id="select">
-            <option>Light Theme by yokesharun</option>
-            <option selected>Main Theme by patorjk</option>
-            <option>Dark Theme by KenyStev</option>
-            <option>Green Theme by CoffeeCatDE</option>
-            <option>Matrix Theme by Geahad Haymor</option>
+            <option>浅色主题</option>
+            <option selected>默认主题</option>
+            <option>暗色主题</option>
+            <option>绿色主题</option>
+            <option>矩阵主题</option>
         </select>
       </div>
       <div style="display:inline-block;margin-right:10px;">
-        <span>Mode:</span>
+        <span>难度:</span>
         <select id="selectMode">
-            <option value="100">Easy</option>
-            <option value="75" selected>Medium</option>
-            <option value="50">Hard</option>
+            <option value="100">简单</option>
+            <option value="75" selected>中等</option>
+            <option value="50">困难</option>
         </select>
       </div>
-      <button onclick="go_full_screen()">Full Screen</button><br />
+      <button onclick="go_full_screen()">全屏</button><br />
     </div>
 
     <!--
-      <h2>Select which mode you would like to play in.</h2>
-      <button id="Easy">Easy</button><br />
-      <button id="Medium">Medium</button><br />
-      <button id="Difficult">Difficult</button>
+      <h2>选择难度.</h2>
+      <button id="Easy">简单</button><br />
+      <button id="Medium">中等</button><br />
+      <button id="Difficult">困难</button>
 
-<button id="high-score">Get your current high score for this game.</button>
+<button id="high-score">点击查看您当前的最高分数.</button>
 -->
     <div id="mode-wrapper" style="display: inline; width: auto;">
     </div>
