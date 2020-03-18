@@ -1,12 +1,7 @@
-JavaScript Snake<br/>
-By Patrick Gillespie<br/>
+JavaScript 贪吃蛇<br/>
 License: MIT<br/>
-http://patorjk.com/games/snake
 
-This is a DOM-based game of Snake that I wrote in JavaScript a few years back.
-
-Other than the full screen mode demonstrated in the code, it can also be 
-initialized in div tags within a page. Example:
+除了默认的全屏模式，你也可以把它放在一个 div 框架中. 比如:
 
     var mySnakeBoard = new SNAKE.Board( {
                                             boardContainer: "game-area",
@@ -15,5 +10,3 @@ initialized in div tags within a page. Example:
                                             height:400
                                         });
                                     
-The comments are formatted a little strange because at the time I was playing
-around with YUI Doc.
