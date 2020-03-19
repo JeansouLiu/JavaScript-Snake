@@ -211,7 +211,7 @@ SNAKE.Snake = SNAKE.Snake || (function() {
         function recordScore() {
             var highScore = localStorage.jsSnakeHighScore;
             if (me.snakeLength > highScore) {
-                alert('Congratulations! You have beaten your previous high score, which was ' + highScore + '.');
+                alert('恭喜! 你打破了你的最高纪录 ' + highScore + '.');
                 localStorage.setItem('jsSnakeHighScore', me.snakeLength);
             }
         }
@@ -668,19 +668,19 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmPauseScreen = document.createElement("div");
             elmPauseScreen.className = "snake-pause-screen";
-            elmPauseScreen.innerHTML = "<div style='padding:10px;'>[Paused]<p/>Press [space] to unpause.</div>";
+            elmPauseScreen.innerHTML = "<div style='padding:10px;'>[暂停中]<p/>按 [空格] 继续.</div>";
 
             elmAboutPanel = document.createElement("div");
             elmAboutPanel.className = "snake-panel-component";
-            elmAboutPanel.innerHTML = "<a href='http://patorjk.com/blog/software/' class='snake-link'>more patorjk.com apps</a> - <a href='https://github.com/patorjk/JavaScript-Snake' class='snake-link'>source code</a> - <a href='https://www.instagram.com/patorjk/' class='snake-link'>pat's instagram</a>";
+            elmAboutPanel.innerHTML = "©<a href='https://blog.jeansou.com' class='snake-link'>Jeansou</a> - <a href='https://github.com/JeansouLiu/JavaScript-Snake' class='snake-link'>源码</a>";
 
             elmLengthPanel = document.createElement("div");
             elmLengthPanel.className = "snake-panel-component";
-            elmLengthPanel.innerHTML = "Length: 1";
+            elmLengthPanel.innerHTML = "长度: 1";
 
             elmHighscorePanel = document.createElement("div");
             elmHighscorePanel.className = "snake-panel-component";
-            elmHighscorePanel.innerHTML = "Highscore: " + localStorage.jsSnakeHighScore;
+            elmHighscorePanel.innerHTML = "最高分: " + localStorage.jsSnakeHighScore;
 
             elmWelcome = createWelcomeElement();
             elmTryAgain = createTryAgainElement();
@@ -726,11 +726,13 @@ SNAKE.Board = SNAKE.Board || (function() {
             var welcomeTxt = document.createElement("div");
             var fullScreenText = "";
             if (config.fullScreen) {
-                fullScreenText = "On Windows, press F11 to play in Full Screen mode.";
+                fullScreenText = "按 F11 全屏.";
             }
-            welcomeTxt.innerHTML = "JavaScript Snake<p></p>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "<p></p>";
+            welcomeTxt.innerHTML = "JavaScript 贪吃蛇<p></p>使用 <strong>↑ ↓ ← →</strong> 控制蛇的方向. " + fullScreenText + "<p></p>";
             var welcomeStart = document.createElement("button");
-            welcomeStart.appendChild(document.createTextNode("Play Game"));
+			welcomeStart.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect";
+			welcomeStart.style = "color: white";
+            welcomeStart.appendChild(document.createTextNode("开始游戏"));
             var loadGame = function() {
                 SNAKE.removeEventListener(window, "keyup", kbShortcut, false);
                 tmpElm.style.display = "none";
@@ -759,9 +761,11 @@ SNAKE.Board = SNAKE.Board || (function() {
             tmpElm.className = elmClassName;
 
             var gameEndTxt = document.createElement("div");
-            gameEndTxt.innerHTML = "JavaScript Snake<p></p>" + message + "<p></p>";
+            gameEndTxt.innerHTML = "JavaScript 贪吃蛇<p></p>" + message + "<p></p>";
             var gameEndStart = document.createElement("button");
-            gameEndStart.appendChild(document.createTextNode("Play Again?"));
+			gameEndStart.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect";
+			gameEndStart.style = "color: white";
+            gameEndStart.appendChild(document.createTextNode("再来一次?"));
 
             var reloadGame = function () {
                 tmpElm.style.display = "none";
@@ -787,11 +791,11 @@ SNAKE.Board = SNAKE.Board || (function() {
         }
 
         function createTryAgainElement() {
-            return createGameEndElement("You died :(", "sbTryAgain", "snake-try-again-dialog");
+            return createGameEndElement("你失败了 :(", "sbTryAgain", "snake-try-again-dialog");
         }
 
         function createWinElement() {
-            return createGameEndElement("You win! :D", "sbWin", "snake-win-dialog");
+            return createGameEndElement("你成功了! :D", "sbWin", "snake-win-dialog");
         }
 
         function handleEndCondition(elmDialog) {
@@ -827,7 +831,7 @@ SNAKE.Board = SNAKE.Board || (function() {
         me.resetBoard = function() {
             SNAKE.removeEventListener(elmContainer, "keydown", myKeyListener, false);
             mySnake.reset();
-            elmLengthPanel.innerHTML = "Length: 1";
+            elmLengthPanel.innerHTML = "长度: 1";
             me.setupPlayingField();
         };
         /**
@@ -1025,11 +1029,11 @@ SNAKE.Board = SNAKE.Board || (function() {
         *   or not (false) after the snake eats food.
         */
         me.foodEaten = function() {
-            elmLengthPanel.innerHTML = "Length: " + mySnake.snakeLength;
+            elmLengthPanel.innerHTML = "长度: " + mySnake.snakeLength;
             if (mySnake.snakeLength > localStorage.jsSnakeHighScore)
             {
                 localStorage.setItem("jsSnakeHighScore", mySnake.snakeLength);
-                elmHighscorePanel.innerHTML = "Highscore: " + localStorage.jsSnakeHighScore;
+                elmHighscorePanel.innerHTML = "最高分: " + localStorage.jsSnakeHighScore;
             }
             if (!myFood.randomlyPlaceFood()) {
                 return false;
