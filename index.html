@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+	<style>html *{
+    font-family: 'Ma Shan Zheng', cursive !important;
+	}
+	body::-webkit-scrollbar {
+    display: none;
+	}
+	body {
+    -ms-overflow-style: none;
+	}
+	</style>
     <meta charset="utf-8">
     <title>JavaScript 贪吃蛇</title>
     <link rel=stylesheet id="style" type="text/css" href="./css/main-snake.css" />
@@ -50,7 +64,7 @@ function getTheme () {
     <div class="snake-toolbar">
       <div style="display:inline-block;margin-right:10px;">
         <span>主题:</span>
-        <select onchange="getTheme()" id="select">
+        <select class="mdl-button mdl-js-ripple-effect" onchange="getTheme()" id="select">
             <option>浅色主题</option>
             <option selected>默认主题</option>
             <option>暗色主题</option>
@@ -60,13 +74,13 @@ function getTheme () {
       </div>
       <div style="display:inline-block;margin-right:10px;">
         <span>难度:</span>
-        <select id="selectMode">
+        <select class="mdl-button mdl-js-ripple-effect" id="selectMode">
             <option value="100">简单</option>
             <option value="75" selected>中等</option>
             <option value="50">困难</option>
         </select>
       </div>
-      <button onclick="go_full_screen()">全屏</button><br />
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="go_full_screen()">全屏</button><br />
     </div>
 
     <!--
